@@ -9,7 +9,7 @@ from src.models.user import db
 from src.routes.user import user_bp
 from src.routes.property import property_bp
 from src.routes.liability import liability_bp
-from src.routes.chatbot import chatbot_bp
+# from src.routes.chatbot import chatbot_bp  # Temporarily disabled for staging
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'asdf#FGSgvasgf$5$WGT')
@@ -21,7 +21,7 @@ CORS(app)
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(property_bp, url_prefix='/api')
 app.register_blueprint(liability_bp, url_prefix='/api')
-app.register_blueprint(chatbot_bp, url_prefix='/api/chatbot')
+# app.register_blueprint(chatbot_bp, url_prefix='/api/chatbot')  # Temporarily disabled for staging
 
 # Database configuration - use PostgreSQL in production, SQLite in development
 database_url = os.environ.get('DATABASE_URL')
